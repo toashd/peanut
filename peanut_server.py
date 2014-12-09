@@ -13,7 +13,7 @@ STRIPE_SECRET_KEY = 'YOUR_TEST_OR_LIVE_SECRET_KEY'
 # Creates the app
 app = Flask(__name__)
 
-@app.route('/pay', methods=['POST'])
+@app.route('/payment', methods=['POST'])
 def pay():
 
     # Sets the stripe api key
