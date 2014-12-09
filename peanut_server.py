@@ -8,10 +8,14 @@ from flask import Flask
 from flask import request
 from flask import json
 
+VERSION = '0.1.0'
 STRIPE_SECRET_KEY = 'YOUR_TEST_OR_LIVE_SECRET_KEY'
 
 # Creates the app
 app = Flask(__name__)
+@app.route('/version', methods=['GET'])
+def version():
+    return 'Peanut version %s' % VERSION
 
 @app.route('/payment', methods=['POST'])
 def pay():
