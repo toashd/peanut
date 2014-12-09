@@ -25,14 +25,16 @@ def pay():
     # Fetches the credit card details
     token       = json['stripeToken']
     amount      = json['amount']
+    currency    = json['currency']
     description = json['description']
+
 
     # Creates the charge on Stripe
     # This will charge the user's card
     try:
         charge = stripe.Charge.create(
                     amount=amount,
-                    currency='usd',
+                    currency=currency,
                     card=token,
                     description=description
                   )
