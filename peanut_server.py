@@ -24,8 +24,8 @@ app.config['SSL'] = True
 def version():
     return 'Peanut version %s' % VERSION
 
-@app.route('/payment', methods=['POST'])
 @requires_ssl
+@app.route('/payment', methods=['POST'])
 def pay():
 
     # Sets the stripe api key
