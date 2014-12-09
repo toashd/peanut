@@ -2,7 +2,7 @@
 
 A small stripe payment server.
 
-### Get up and running
+## Get up and running
 
 Peanut consists of a single-file Python server using the lightweight Python REST framework Flask
 along with the Stripe Python SDK for creating the payment requests.
@@ -27,7 +27,7 @@ Start the peanut server by executing the Python script within a terminal session
 python peanut_server.py
 ```
 
-### Limitations
+## Limitations
 Peanut is just a simple payment server forwarding payment requests to stripe without storing any credit
 card and payments informations, respectively. In a real world app, you’d likely add the customer’s
 order, along with the requisite shipping address, product IDs, and other order information, to a
@@ -35,5 +35,5 @@ database so the order could be fulfilled properly.
 
 ### License
 
-Peanut is available under the MIT license.
+MIT
 
