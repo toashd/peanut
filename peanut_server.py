@@ -4,20 +4,28 @@
 
 import stripe
 
+from decorators import requires_ssl
+
 from flask import Flask
 from flask import request
 from flask import json
+
+from OpenSSL import SSL
 
 VERSION = '0.1.0'
 STRIPE_SECRET_KEY = 'YOUR_TEST_OR_LIVE_SECRET_KEY'
 
 # Creates the app
 app = Flask(__name__)
+app.config['SSL'] = True
+
+@requires_ssl
 @app.route('/version', methods=['GET'])
 def version():
     return 'Peanut version %s' % VERSION
 
 @app.route('/payment', methods=['POST'])
+@requires_ssl
 def pay():
 
     # Sets the stripe api key
@@ -49,5 +57,6 @@ def pay():
 
 if __name__ == '__main__':
     # Set as 0.0.0.0 to be accessible outside your local machine
-    app.run(debug=True, host= '0.0.0.0')
+    # TODO(toashd): Change adhoc mode to real certificate
+    app.run(debug=True, host='0.0.0.0', ssl_context='adhoc')
 
