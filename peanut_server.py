@@ -28,7 +28,6 @@ def pay():
     currency    = json['currency']
     description = json['description']
 
-
     # Creates the charge on Stripe
     # This will charge the user's card
     try:
@@ -43,7 +42,6 @@ def pay():
         pass
 
     return "Success!"
-
 
 if __name__ == '__main__':
     # Set as 0.0.0.0 to be accessible outside your local machine
