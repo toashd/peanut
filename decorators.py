@@ -10,6 +10,7 @@ def requires_ssl(fn):
             if request.is_secure:
                 return fn(*args, **kwargs)
             else:
+                print ' * Secure redirect'
                 return redirect(request.url.replace("http://", "https://"))
 
         return fn(*args, **kwargs)
