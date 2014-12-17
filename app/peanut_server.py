@@ -10,7 +10,7 @@ from flask import Flask
 from flask import request
 from flask import json
 
-from OpenSSL import SSL
+# from OpenSSL import SSL
 
 DEBUG  = True
 SECURE = False
