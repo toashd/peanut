@@ -53,4 +53,7 @@ docs/_build/
 # PyBuilder
 target/
 
+# Vagrant
+.vagrant/
 
+.container-id
