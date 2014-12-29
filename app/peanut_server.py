@@ -4,7 +4,7 @@
 
 import stripe
 
-from decorators import requires_ssl
+from util import requires_ssl
 
 from flask import Flask
 from flask import request
