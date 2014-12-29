@@ -28,3 +28,7 @@ run: build
 		@echo "starting docker container"
 		@CONTAINER_ID="$(shell docker run -p $(PUBLISH_PORT) -d $(CONTAINER_NAME))"; \
 		echo $$CONTAINER_ID >> .container-id;
+
+.PHONY: vagrant
+vagrant:
+		@vagrant up --provider=docker
