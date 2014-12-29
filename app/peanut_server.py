@@ -51,7 +51,7 @@ def pay():
                     card=token,
                     description=description
                   )
-    except stripe.CardError, e:
+    except stripe.CardError as e:
         # The card has been declined
         pass
 
