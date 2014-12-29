@@ -12,6 +12,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, guest: 80, host: 8000
   config.vm.provision 'docker'
 
-  # kill all open ssh connections, forcing vagrant to relog
-  config.vm.provision 'shell', inline: "ps aux | grep 'sshd:' | awk '{print $2}' | xargs kill"
+  # ensure that the vagrant user belongs to the docker group
+  config.vm.provision :shell, inline: "usermod -a -G docker vagrant; "
+
+  # kill all open ssh connections, forcing vagrant to relogin
+  config.vm.provision :shell, inline: "ps aux | grep 'sshd:' | awk '{print $2}' | xargs kill"
 end
