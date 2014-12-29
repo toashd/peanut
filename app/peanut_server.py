@@ -22,8 +22,14 @@ STRIPE_SECRET_KEY = 'YOUR_TEST_OR_LIVE_SECRET_KEY'
 app = Flask(__name__)
 app.config['SSL'] = SECURE
 
+@app.route('/', methods=['GET'])
+def index():
+    ''' Index page '''
+    return 'Peanut - A small Python payment server'
+
 @app.route('/version', methods=['GET'])
 def version():
+    ''' Prints the version '''
     return 'Peanut version %s' % VERSION
 
 @app.route('/payment', methods=['POST'])
