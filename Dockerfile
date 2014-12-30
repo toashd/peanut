@@ -5,7 +5,8 @@ MAINTAINER Tobias Schmid <toashd@gmail.com>
 RUN apt-get update
 
 # Install Python and basic Python tools
-RUN apt-get install -y python python-dev python-distribute python-pip
+RUN apt-get install -y python3 python3-pip
+#RUN apt-get install -y python python-dev python-distribute python-pip
 
 # Install server tools
 RUN apt-get install -y nginx supervisor
@@ -18,7 +19,7 @@ ADD ./requirements.txt /var/www/peanut/requirements.txt
 RUN mkdir /var/log/uwsgi
 
 # Install app requirements
-RUN pip install -r /var/www/peanut/requirements.txt
+RUN pip3 install -r /var/www/peanut/requirements.txt
 
 # Configure nginx and supervisor
 ADD ./conf /var/www/peanut/conf
