@@ -6,17 +6,17 @@ A small stripe payment server running inside a Docker container.
 
 To build and run the project directly as a Docker container, simply call
 
-```bash
+``` bash
 make run
-``
+```
 
 This should work on Linux as long as Docker is installed and running. If you're on OS X and a Docker instance is not already installed and running, install and use [boot2docker-cli](https://github.com/boot2docker/boot2docker-cli) (this requires Go).
 
 To stop and remove the container and any remaining garbage, use
 
-```bash
+``` bash
 make clean
-``
+```
 
 ## Run the application without a Docker container
 
@@ -27,13 +27,13 @@ First, you’ll need pip, which is a command-line utility for installing python 
 
 Open a terminal and pip install Flask by entering the following command:
 
-```bash
+``` bash
 sudo pip install Flask
 ```
 
 Next, install the Python Stripe library with the following command:
 
-```bash
+``` bash
 sudo pip install --index-url https://code.stripe.com --upgrade stripe
 ```
 
