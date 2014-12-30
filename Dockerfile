@@ -28,6 +28,9 @@ RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /var/www/peanut/conf/peanut_nginx.conf /etc/nginx/sites-enabled/
 RUN ln -s /var/www/peanut/conf/peanut_supervisor.conf /etc/supervisor/conf.d/
 
+# Export environment variables
+ENV APP_SETTINGS config.DevelopmentConfig
+
 # Expose ports
 EXPOSE 80
 

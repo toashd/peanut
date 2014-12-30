@@ -2,6 +2,7 @@
 
 '''A small Python payment server'''
 
+import os
 import stripe
 
 from util import requires_ssl
@@ -12,15 +13,11 @@ from flask import json
 
 # from OpenSSL import SSL
 
-DEBUG  = True
-SECURE = False
-
 VERSION = '0.1.0'
-STRIPE_SECRET_KEY = 'YOUR_TEST_OR_LIVE_SECRET_KEY'
 
 # Creates the app
 app = Flask(__name__)
-app.config['SSL'] = SECURE
+app.config.from_object(os.environ['APP_SETTINGS'])
 
 @app.route('/', methods=['GET'])
 def index():
@@ -37,7 +34,7 @@ def version():
 def pay():
 
     # Sets the stripe api key
-    stripe.api_key = STRIPE_SECRET_KEY
+    stripe.api_key = app.config['STRIPE_SECRET_KEY']
 
     # Parses the request as JSON
     json = request.get_json(force=True)
@@ -65,5 +62,5 @@ def pay():
 
 if __name__ == '__main__':
     # Set as 0.0.0.0 to be accessible outside your local machine
-    app.run(debug=DEBUG, host='0.0.0.0')
+    app.run(debug=app.config['DEBUG'], host='0.0.0.0')
 
